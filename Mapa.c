@@ -26,10 +26,10 @@ void Asignacion(int mapa[5][5]){
     }
     
     for(i=0;i<5;i++)
-        mapa[i][0]=1; //Bosque en primera fila
+        mapa[0][i]=1; //Bosque en primera fila
         
     for(i=0;i<5;i++)
-        mapa[4][i]=2; //Desierto en ultima columna (4)
+        mapa[i][4]=2; //Desierto en ultima columna (4)
         
         mapa[2][2]=3;
         mapa[4][0]=3;
@@ -76,7 +76,7 @@ void I(int mapa[5][5], char Mundo[10][10]){
             switch(mapa[i][j]){
                 
                 case 0:
-                printf("|%10s/UU+1F332|",Mundo[0]);
+                printf("|%10s|",Mundo[0]);
                 break;
                 
                 case 1:
@@ -88,7 +88,7 @@ void I(int mapa[5][5], char Mundo[10][10]){
                 break;
                 
                 case 3:
-                printf(CYAN"|%10s|"RESET,Mundo[3]);
+                printf(CYAN"|%11s|"RESET,Mundo[3]);
                 break;
                 
                 case 4:
@@ -228,9 +228,14 @@ void Reporte(int mapa[5][5], char Mundo[10][10]){
     
 
 int main()
- setlocale(LC_ALL, "");
- 
+
 {
+    
+    
+    setlocale(LC_ALL, "es_ES.UTF-8"); 
+    
+    
+
     int mapa[5][5];
     char Mundo[10][10]={
         "Nada",
@@ -254,7 +259,7 @@ int main()
     BNPC(mapa);
     
     //parte 3
-    printf("\n");
+    printf("\nHa ocurrido una tormenta!\n");
     EventoA(mapa);
     I(mapa, Mundo);
     //Parte 4
